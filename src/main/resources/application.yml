@@ -1,0 +1,36 @@
+server:
+  port: 8099
+
+spring:
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:fps
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        '[format_sql]': true        
+        '[generate_statistics]': false
+    hibernate:
+      ddl-auto: none      
+  application:
+    name: Favorite Payee Service
+
+info:
+  app:
+    name: Favorite Payee Service
+    description: Favorite Payee Service
+
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health,info,env,configprops  
+        
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
